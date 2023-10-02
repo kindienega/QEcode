@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    padding:0;
+}
+h1{
+    text-align: center;
+    color: rgba(14, 3, 3, 0.841);
+}
+.containner{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;    
+} 
+
+.image {
+    border:3px solid rgba(14, 3, 3, 0.841);
+    width: 300px;
+    height:200px;
+}
+.image img{
+    width:100%;
+    height: 100%;
+}
+.hero {
+    background-color: rgba(14, 3, 3, 0.841);
+    text-align: center;
+    height:200px;
+    display: flex;
+    align-items: center;
+}
+.hero h1{
+    margin-left: 60px;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(206, 203, 203);
+}
+.btn{
+    background-color: rgba(14, 3, 3, 0.841);
+    margin-top: 40px;
+ 
+}
+.btn a{
+    text-decoration: none;
+    color: rgb(206, 203, 203);
+    transition: 0.5 ease-in-out;
+}
+.btn a:hover{
+    color:white;
+    scale:1.2;
+
+}
