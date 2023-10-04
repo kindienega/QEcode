@@ -25,7 +25,7 @@ module.exports.adminSignup = async(req, res, next) =>{
     }
 }
 module.exports.renderLoginForm = (req, res)=>{
-    req.render('admin/login')
+    res.render('admin/login')
 
 }
 
@@ -35,4 +35,5 @@ module.exports.adminLogin=(req,res)=>{
     // console.log(req.user.role)
     req.flash('success','welcome back')
     res.redirect(redirectUrl)
+
  }

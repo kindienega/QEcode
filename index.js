@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express=require('express')
 const mongoose=require('mongoose')
 const dotenv = require('dotenv').config();
@@ -36,24 +37,24 @@ const {isAdminLoggedIn,isOperatorLoggedIn,isAdmin,isOperator}=require('./middlew
 
 const app=express()
 mongoose.set('strictQuery',false)
-// mongoose
-//     .connect(process.env.MONGO_URI)
-//     .then(()=>{
-//       console.log('connections successful')
-//     })
-//     .catch((e)=>{
-//         console.log(e)
-//        })
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(()=>{
+      console.log('connections successful')
+    })
+    .catch((e)=>{
+        console.log(e)
+       })
       
       //  mongodb+srv://kindienega@a21b31c41MK:@cluster0.djsrrt0.mongodb.net/kukua?retryWrites=true&w=majority&appName=AtlasApp
  
 
-mongoose.connect('mongodb://127.0.0.1:27017/qrcodedb')
- .then(()=>{
-    console.log("connected")
- }).catch((e)=>{
-    console.log(e)
- })
+// mongoose.connect('mongodb://127.0.0.1:27017/qrcodedb')
+//  .then(()=>{
+//     console.log("connected")
+//  }).catch((e)=>{
+//     console.log(e)
+//  })
 
 const sessionConfig={
    secret:'thisshouldbeasecret',
@@ -122,7 +123,9 @@ const register=async(req,res,next)=>{
 
 
  /////////////////THE register ROUTES////////////////////////////////////////////
-app.get('/register',isAdminLoggedIn,register,(req,res)=>{//to register an admin the other admin should be logged in&this previlage is only given for the admin!
+app.get('/register',isAdminLoggedIn,register,(req,res)=>{
+   
+   //to register an admin the other admin should be logged in&this previlage is only given for the admin!
    res.render('admin/register')
 })
 
@@ -156,7 +159,6 @@ app.get('/signup',(req,res,next)=>{
    res.render('signup')
 })
 
-
 app.get('/logout',(req,res,next)=>{
    req.session.passport=null
    req.flash('success','Goodbye')
@@ -179,6 +181,6 @@ app.use((err,req,res,next)=>{
 })
 
 
- app.listen(3000,()=>{
-    console.log("listening on port 3000")
+ app.listen(port,()=>{
+    console.log(`app linsten on port ${port}`)
  })
