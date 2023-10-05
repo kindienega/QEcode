@@ -46,9 +46,8 @@ mongoose
         console.log(e)
        })
       
-      //  mongodb+srv://kindienega@a21b31c41MK:@cluster0.djsrrt0.mongodb.net/kukua?retryWrites=true&w=majority&appName=AtlasApp
- 
 
+       
 // mongoose.connect('mongodb://127.0.0.1:27017/qrcodedb')
 //  .then(()=>{
 //     console.log("connected")
